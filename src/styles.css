@@ -1,4 +1,654 @@
-*{box-sizing:border-box}body{margin:0;min-width:320px;font-family:Inter,system-ui,sans-serif;color:#352b38;background:#fff7ed}button{font:inherit}.app{min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(circle at 10% 12%,#ffe0eb 0 12%,transparent 28%),radial-gradient(circle at 90% 82%,#d8f7eb 0 11%,transparent 30%),#fff7ed;position:relative}.app:before,.app:after{content:"";position:fixed;width:12px;height:22px;border-radius:5px;opacity:.55;transform:rotate(28deg)}.app:before{background:#ffc85c;left:8%;top:30%}.app:after{background:#8d82ff;right:8%;bottom:27%}header{width:min(100% - 36px,880px);padding:22px 0;margin:auto;display:flex;justify-content:space-between;align-items:center}.logo{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#76666e}.progress{display:flex;gap:6px}.progress span{width:25px;height:6px;border-radius:20px;background:#eadbd3}.progress .active{background:#ff7198}main{width:min(100% - 28px,650px);margin:auto;z-index:2}.card{background:rgba(255,255,255,.9);border:2px solid white;border-radius:34px;padding:clamp(27px,6vw,55px);text-align:center;box-shadow:0 25px 70px rgba(103,67,71,.13);animation:pop .5s cubic-bezier(.2,1.35,.4,1)}@keyframes pop{0%{opacity:0;transform:translateY(20px) scale(.94) rotate(-1deg)}100%{opacity:1;transform:none}}.emoji{width:80px;height:80px;margin:0 auto 22px;border-radius:27px;background:#fff0b8;display:grid;place-items:center;font-size:40px;transform:rotate(-4deg);box-shadow:0 10px 22px rgba(255,190,80,.15)}.tag{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ff6f97;margin-bottom:11px}h1{font-size:clamp(34px,7vw,56px);line-height:1.03;letter-spacing:-.045em;margin:0}p{font-size:15px;line-height:1.8;color:#786d77;max-width:515px;margin:20px auto}.strong{font-weight:900;color:#54444e}.actions{min-height:105px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}.continue,.not{border:0;border-radius:15px;padding:14px 19px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.continue{background:#ff6f98;color:#fff;box-shadow:0 11px 23px rgba(255,111,152,.24);transition:.2s}.continue:hover{transform:translateY(-3px) rotate(-1deg)}.accept{background:#55cfa8}.not{background:#ffe1e8;color:#b84e6d;transition:transform .2s ease}.noMsg{display:inline-block;background:#fff0b8;color:#735f34;padding:10px 15px;border-radius:13px;font-size:11px;font-weight:800;animation:wiggle .35s ease}@keyframes wiggle{25%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}75%{transform:rotate(2deg)}}.footnote{font-size:10px;color:#b3a5ac;margin-top:15px}.back,.replay{border:0;background:transparent;color:#9d8f96;cursor:pointer;font-size:12px;display:inline-flex;gap:6px;align-items:center}.back{float:left;margin-bottom:12px}.back:disabled{opacity:0;pointer-events:none}.center{float:none;margin:25px 6px 0}.celebration .back{float:none}.replay{margin-top:22px}.big{font-size:70px;animation:bounce 1s infinite alternate}@keyframes bounce{to{transform:translateY(-9px) rotate(5deg)}}.badge{display:inline-flex;align-items:center;gap:7px;padding:11px 16px;border-radius:30px;background:#dff8ee;color:#318d70;font-size:11px;font-weight:900}
+* {
+  box-sizing: border-box;
+}
 
-/* cute crying cat */
-.catWrap{height:180px;position:relative;width:230px;margin:-4px auto 0;display:flex;justify-content:center;align-items:flex-end}.cat{width:132px;height:105px;border-radius:48% 48% 45% 45%;background:#fff;position:relative;border:4px solid #f2dce4;box-shadow:0 12px 20px rgba(150,100,115,.1);animation:catBounce .8s ease-in-out infinite alternate}.ear{position:absolute;width:45px;height:45px;background:#fff;border:4px solid #f2dce4;top:-25px;z-index:-1}.leftEar{left:3px;transform:rotate(-35deg);border-radius:8px 30px 5px 30px}.rightEar{right:3px;transform:rotate(35deg);border-radius:30px 8px 30px 5px}.face{position:absolute;inset:0}.eye{position:absolute;top:38px;font-size:28px;font-weight:900;color:#3c3340}.leftEye{left:31px}.rightEye{right:31px}.tearDrop{position:absolute;font-size:20px;top:53px;animation:tear .8s infinite}.leftDrop{left:28px}.rightDrop{right:28px;animation-delay:.35s}@keyframes tear{50%{transform:translateY(9px);opacity:.75}100%{transform:translateY(16px);opacity:0}}.nose{position:absolute;top:55px;left:61px;color:#e48ba3;font-size:22px}.mouth{position:absolute;top:67px;left:57px;font-size:22px;color:#57434d}.paw{position:absolute;bottom:-14px;font-size:27px}.p1{left:25px;transform:rotate(-15deg)}.p2{right:25px;transform:rotate(15deg)}@keyframes catBounce{to{transform:translateY(-7px) rotate(1deg)}}.sorryBubble{position:absolute;right:2px;top:18px;background:#fff0b8;padding:9px 13px;border-radius:14px;font-size:12px;font-weight:900;color:#765f32;transform:rotate(5deg);animation:float .9s infinite alternate}@keyframes float{to{transform:translateY(-5px) rotate(5deg)}}footer{text-align:center;padding:20px;color:#ab9ea5;font-size:10px}@media(max-width:560px){header{width:calc(100% - 26px);padding:17px 0}.logo{font-size:9px}.progress span{width:18px}.card{padding:28px 19px;border-radius:27px}h1{font-size:clamp(34px,11vw,48px)}p{font-size:14px}.actions{min-height:145px;display:block;padding-top:7px}.continue,.not{width:100%;justify-content:center}.not{margin-top:12px}.back{margin-bottom:10px}.emoji{width:70px;height:70px;font-size:34px}.catWrap{transform:scale(.88);margin-top:-10px;margin-bottom:-5px}}
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Inter, system-ui, sans-serif;
+  color: #352b38;
+  background: #fff7ed;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      #ffe0eb 0 12%,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 82%,
+      #d8f7eb 0 11%,
+      transparent 30%
+    ),
+    #fff7ed;
+  position: relative;
+}
+
+.app:before,
+.app:after {
+  content: "";
+  position: fixed;
+  width: 12px;
+  height: 22px;
+  border-radius: 5px;
+  opacity: 0.55;
+  transform: rotate(28deg);
+}
+
+.app:before {
+  background: #ffc85c;
+  left: 8%;
+  top: 30%;
+}
+
+.app:after {
+  background: #8d82ff;
+  right: 8%;
+  bottom: 27%;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  width: min(100% - 36px, 880px);
+  padding: 22px 0;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #76666e;
+}
+
+.progress {
+  display: flex;
+  gap: 6px;
+}
+
+.progress span {
+  width: 25px;
+  height: 6px;
+  border-radius: 20px;
+  background: #eadbd3;
+}
+
+.progress .active {
+  background: #ff7198;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: min(100% - 28px, 650px);
+  margin: auto;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid white;
+  border-radius: 34px;
+  padding: clamp(27px, 6vw, 55px);
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(103, 67, 71, 0.13);
+  animation: pop 0.5s cubic-bezier(0.2, 1.35, 0.4, 1);
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94) rotate(-1deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   PAGE EMOJI
+========================= */
+
+.emoji {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 22px;
+  border-radius: 27px;
+  background: #fff0b8;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  transform: rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(255, 190, 80, 0.15);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.tag {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #ff6f97;
+  margin-bottom: 11px;
+}
+
+h1 {
+  font-size: clamp(34px, 7vw, 56px);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  margin: 0;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #786d77;
+  max-width: 515px;
+  margin: 20px auto;
+}
+
+.strong {
+  font-weight: 900;
+  color: #54444e;
+}
+
+/* =========================
+   BUTTON AREA
+========================= */
+
+.actions {
+  min-height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.continue,
+.not {
+  border: 0;
+  border-radius: 15px;
+  padding: 14px 19px;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.continue {
+  background: #ff6f98;
+  color: white;
+  box-shadow: 0 11px 23px rgba(255, 111, 152, 0.24);
+  transition: 0.2s;
+}
+
+.continue:hover {
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.accept {
+  background: #55cfa8;
+}
+
+.not {
+  background: #ffe1e8;
+  color: #b84e6d;
+  transition: transform 0.2s ease;
+}
+
+/* =========================
+   NOT BUTTON MESSAGE
+========================= */
+
+.noMsg {
+  display: inline-block;
+  background: #fff0b8;
+  color: #735f34;
+  padding: 10px 15px;
+  border-radius: 13px;
+  font-size: 11px;
+  font-weight: 800;
+  animation: wiggle 0.35s ease;
+}
+
+@keyframes wiggle {
+  25% {
+    transform: rotate(3deg);
+  }
+
+  50% {
+    transform: rotate(-3deg);
+  }
+
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+/* =========================
+   SMALL TEXT
+========================= */
+
+.footnote {
+  font-size: 10px;
+  color: #b3a5ac;
+  margin-top: 15px;
+}
+
+/* =========================
+   BACK / REPLAY BUTTON
+========================= */
+
+.back,
+.replay {
+  border: 0;
+  background: transparent;
+  color: #9d8f96;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.back {
+  float: left;
+  margin-bottom: 12px;
+}
+
+.back:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.center {
+  float: none;
+  margin: 25px 6px 0;
+}
+
+.celebration .back {
+  float: none;
+}
+
+.replay {
+  margin-top: 22px;
+}
+
+/* =========================
+   CELEBRATION
+========================= */
+
+.big {
+  font-size: 70px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-9px) rotate(5deg);
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 16px;
+  border-radius: 30px;
+  background: #dff8ee;
+  color: #318d70;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* =========================
+   CUTE CRYING CAT
+========================= */
+
+.catWrap {
+  height: 180px;
+  position: relative;
+  width: 230px;
+  margin: -4px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.cat {
+  width: 132px;
+  height: 105px;
+  border-radius: 48% 48% 45% 45%;
+  background: white;
+  position: relative;
+  border: 4px solid #f2dce4;
+  box-shadow: 0 12px 20px rgba(150, 100, 115, 0.1);
+  animation: catBounce 0.8s ease-in-out infinite alternate;
+}
+
+/* Cat ears */
+
+.ear {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: white;
+  border: 4px solid #f2dce4;
+  top: -25px;
+  z-index: -1;
+}
+
+.leftEar {
+  left: 3px;
+  transform: rotate(-35deg);
+  border-radius: 8px 30px 5px 30px;
+}
+
+.rightEar {
+  right: 3px;
+  transform: rotate(35deg);
+  border-radius: 30px 8px 30px 5px;
+}
+
+/* Cat face */
+
+.face {
+  position: absolute;
+  inset: 0;
+}
+
+.eye {
+  position: absolute;
+  top: 38px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #3c3340;
+}
+
+.leftEye {
+  left: 31px;
+}
+
+.rightEye {
+  right: 31px;
+}
+
+/* Tears */
+
+.tearDrop {
+  position: absolute;
+  font-size: 20px;
+  top: 53px;
+  animation: tear 0.8s infinite;
+}
+
+.leftDrop {
+  left: 28px;
+}
+
+.rightDrop {
+  right: 28px;
+  animation-delay: 0.35s;
+}
+
+@keyframes tear {
+  50% {
+    transform: translateY(9px);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+
+/* Cat nose */
+
+.nose {
+  position: absolute;
+  top: 55px;
+  left: 61px;
+  color: #e48ba3;
+  font-size: 22px;
+}
+
+/* Cat mouth */
+
+.mouth {
+  position: absolute;
+  top: 67px;
+  left: 57px;
+  font-size: 22px;
+  color: #57434d;
+}
+
+/* Cat paws */
+
+.paw {
+  position: absolute;
+  bottom: -14px;
+  font-size: 27px;
+}
+
+.p1 {
+  left: 25px;
+  transform: rotate(-15deg);
+}
+
+.p2 {
+  right: 25px;
+  transform: rotate(15deg);
+}
+
+@keyframes catBounce {
+  to {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+
+/* Sorry speech bubble */
+
+.sorryBubble {
+  position: absolute;
+  right: 2px;
+  top: 18px;
+  background: #fff0b8;
+  padding: 9px 13px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 900;
+  color: #765f32;
+  transform: rotate(5deg);
+  animation: float 0.9s infinite alternate;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-5px) rotate(5deg);
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #ab9ea5;
+  font-size: 10px;
+}
+
+/* ==================================================
+   MOBILE RESPONSIVE
+================================================== */
+
+@media (max-width: 560px) {
+
+  header {
+    width: calc(100% - 26px);
+    padding: 17px 0;
+  }
+
+  .logo {
+    font-size: 9px;
+  }
+
+  .progress {
+    gap: 4px;
+  }
+
+  .progress span {
+    width: 18px;
+    height: 5px;
+  }
+
+  main {
+    width: calc(100% - 20px);
+  }
+
+  .card {
+    padding: 28px 19px;
+    border-radius: 27px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Mobile buttons */
+
+  .actions {
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 7px;
+  }
+
+  .continue,
+  .not {
+    width: auto;
+    min-width: 0;
+    max-width: 90%;
+    padding: 11px 16px;
+    font-size: 12px;
+    border-radius: 13px;
+    justify-content: center;
+  }
+
+  .continue svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .not {
+    margin-top: 0;
+  }
+
+  .back {
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+
+  .emoji {
+    width: 70px;
+    height: 70px;
+    font-size: 34px;
+  }
+
+  /* Smaller crying cat */
+
+  .catWrap {
+    transform: scale(0.82);
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .footnote {
+    font-size: 9px;
+  }
+
+  footer {
+    padding: 16px;
+    font-size: 9px;
+  }
+}
+
+/* ==================================================
+   VERY SMALL PHONES
+================================================== */
+
+@media (max-width: 380px) {
+
+  header {
+    padding: 13px 0;
+  }
+
+  .logo {
+    font-size: 8px;
+  }
+
+  .progress span {
+    width: 15px;
+    height: 4px;
+  }
+
+  .card {
+    padding: 24px 16px;
+    border-radius: 23px;
+  }
+
+  h1 {
+    font-size: 31px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .continue,
+  .not {
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+
+  .catWrap {
+    transform: scale(0.72);
+    margin-top: -18px;
+    margin-bottom: -20px;
+  }
+}
